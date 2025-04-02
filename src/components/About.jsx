@@ -10,7 +10,7 @@ const About = () => {
   useGSAP(() => {
     const clipAnimation = gsap.timeline({
       scrollTrigger: {
-        trigger: "#clip",
+        trigger: "#clip2",
         start: "center center",
         end: "+=800 center",
         scrub: 0.5,
@@ -27,7 +27,7 @@ const About = () => {
   });
 
   return (
-    <div id="about" className="min-h-screen w-screen">
+    <div id="about2" className="min-h-screen w-screen">
       <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
         <p className="font-general text-sm uppercase md:text-[10px]">
           Welcome to Zentry
@@ -47,7 +47,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="h-dvh w-screen" id="clip">
+      <div className="h-dvh w-screen" id="clip2">
         <div className="mask-clip-path about-image">
           <img
             src="img/about.webp"
