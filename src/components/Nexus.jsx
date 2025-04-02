@@ -11,8 +11,7 @@ const Nexus = () => {
     const container = containerRef.current;
     const items = gsap.utils.toArray(".item");
     
-    // First, create a main ScrollTrigger that pins the entire section
-    // This keeps the section in view during the entire animation sequence
+    // Main ScrollTrigger that pins the entire section
     const mainScrollTrigger = ScrollTrigger.create({
       trigger: container,
       start: "top top",
@@ -109,37 +108,45 @@ const Nexus = () => {
       }
     });
     
+    // Handle resize events to ensure responsive behavior
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
     return () => {
-      // Clean up all ScrollTriggers
+      // Clean up all ScrollTriggers and event listeners
       ScrollTrigger.getAll().forEach(st => st.kill());
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
   
   return (
     <div id="nexus-about" className="min-h-screen bg-[#EDFF66] text-black" ref={containerRef}>
-      <div className="h-auto flex flex-col justify-start items-start px-10 py-16 max-w-6xl mx-auto">
-        <div className="main-title mb-24">
-          <h2 className="text-6xl font-black uppercase leading-none tracking-tight">
+      <div className="h-auto flex flex-col justify-start items-start px-4 sm:px-6 md:px-10 py-8 md:py-16 max-w-6xl mx-auto">
+        <div className="main-title mb-12 md:mb-24">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-none tracking-tight">
             The Universe<br />Powered by Zent
           </h2>
-          <div className="mt-8">
-            <button className="bg-black text-white px-8 py-2 rounded-full text-sm uppercase font-bold">
+          <div className="mt-4 md:mt-8">
+            <button className="bg-black text-white px-5 sm:px-6 md:px-8 py-2 rounded-full text-xs sm:text-sm uppercase font-bold">
               Enter Vault
             </button>
           </div>
         </div>
         
-        <div className="flex flex-col gap-8 w-full">
+        <div className="flex flex-col gap-6 md:gap-8 w-full">
           <div className="item relative">
             <div className="flex">
-              <div className="mr-4 relative">
-                <div className="item-number text-sm font-medium opacity-60">01</div>
-                <div className="progress-bar absolute left-0 top-8 w-px h-0 bg-black" style={{ height: '0%' }}></div>
+              <div className="mr-3 md:mr-4 relative">
+                <div className="item-number text-xs md:text-sm font-medium opacity-60">01</div>
+                <div className="progress-bar absolute left-0 top-6 md:top-8 w-px h-0 bg-black" style={{ height: '0%' }}></div>
               </div>
               <div className="flex flex-col">
-                <h3 className="item-title text-xl font-bold">Shaping Zentry Collectively</h3>
-                <div className="item-content mt-4 max-w-lg">
-                  <p className="text-base">
+                <h3 className="item-title text-lg sm:text-xl font-bold">Shaping Zentry Collectively</h3>
+                <div className="item-content mt-2 md:mt-4 max-w-lg">
+                  <p className="text-sm sm:text-base">
                     Participate in governance, influence key decisions in the ever-growing Zentry Universe that is limited only by people's imaginations.
                   </p>
                 </div>
@@ -149,14 +156,14 @@ const Nexus = () => {
           
           <div className="item relative opacity-0">
             <div className="flex">
-              <div className="mr-4 relative">
-                <div className="item-number text-sm font-medium opacity-60">02</div>
-                <div className="progress-bar absolute left-0 top-8 w-px h-0 bg-black" style={{ height: '0%' }}></div>
+              <div className="mr-3 md:mr-4 relative">
+                <div className="item-number text-xs md:text-sm font-medium opacity-60">02</div>
+                <div className="progress-bar absolute left-0 top-6 md:top-8 w-px h-0 bg-black" style={{ height: '0%' }}></div>
               </div>
               <div className="flex flex-col">
-                <h3 className="item-title text-xl font-bold">Unlocking Economic Opportunity</h3>
-                <div className="item-content mt-4 max-w-lg opacity-0 h-0 hidden">
-                  <p className="text-base">
+                <h3 className="item-title text-lg sm:text-xl font-bold">Unlocking Economic Opportunity</h3>
+                <div className="item-content mt-2 md:mt-4 max-w-lg opacity-0 h-0 hidden">
+                  <p className="text-sm sm:text-base">
                     Zentry opens doors to economic potential by establishing vast partnerships, investments, and activities within the ecosystem.
                   </p>
                 </div>
@@ -166,14 +173,14 @@ const Nexus = () => {
           
           <div className="item relative opacity-0">
             <div className="flex">
-              <div className="mr-4 relative">
-                <div className="item-number text-sm font-medium opacity-60">03</div>
-                <div className="progress-bar absolute left-0 top-8 w-px h-0 bg-black" style={{ height: '0%' }}></div>
+              <div className="mr-3 md:mr-4 relative">
+                <div className="item-number text-xs md:text-sm font-medium opacity-60">03</div>
+                <div className="progress-bar absolute left-0 top-6 md:top-8 w-px h-0 bg-black" style={{ height: '0%' }}></div>
               </div>
               <div className="flex flex-col">
-                <h3 className="item-title text-xl font-bold">Sharing Value Accrued</h3>
-                <div className="item-content mt-4 max-w-lg opacity-0 h-0 hidden">
-                  <p className="text-base">
+                <h3 className="item-title text-lg sm:text-xl font-bold">Sharing Value Accrued</h3>
+                <div className="item-content mt-2 md:mt-4 max-w-lg opacity-0 h-0 hidden">
+                  <p className="text-sm sm:text-base">
                     ZENT holders thrive as Zentry grows, benefiting from the expansive partnerships, treasury investments, and economic activities.
                   </p>
                 </div>
