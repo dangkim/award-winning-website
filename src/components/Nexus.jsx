@@ -1,35 +1,37 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Nexus = () => {
   const sectionRef = useRef(null);
 
-  useEffect(() => {
-    const section = sectionRef.current;
+  useGSAP(() => {
+    const items = gsap.utils.toArray(".item");
 
-    gsap.fromTo(
-      ".item",
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.5,
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: "+=2000",
-          scrub: true,
-          pin: true,
-        },
-      }
-    );
-  }, []);
+    items.forEach((item) => {
+      gsap.fromTo(
+        item,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          scrollTrigger: {
+            trigger: item,
+            start: "top 80%",
+            end: "top 30%",
+            scrub: true,
+          },
+        }
+      );
+    });
+  });
+
 
   return (
-    <div ref={sectionRef} className="min-h-screen bg-[#f7f700] text-black">
+    <div id="nexus-about" className="min-h-screen bg-[#f7f700] text-black">
       <div className="h-screen flex flex-col justify-center items-start pl-10">
         <div className="item mb-8">
           <h2 className="text-4xl font-bold mb-4">The Universe Powered by Zent</h2>
