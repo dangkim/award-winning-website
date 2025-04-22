@@ -67,9 +67,9 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
       />
       <div className="relative z-10 flex size-full flex-col justify-between p-5 text-blue-50">
         <div>
-          <h1 className="bento-title special-font">{title}</h1>
+          <h1 className="bento-title special-font text-[#EDFF66]">{title}</h1>
           {description && (
-            <p className="mt-3 max-w-64 text-xs md:text-base">{description}</p>
+            <p className="mt-3 max-w-64 text-xs md:text-base text-orange-200">{description}</p>
           )}
         </div>
 
@@ -139,7 +139,7 @@ const Features = () => (
           />
         </BentoTilt>
 
-        <BentoTilt className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
+        <BentoTilt className="bento-tilt_1 row-span-1 ms-14 md:col-span-1 md:ms-0">
           <BentoCard
             src="videos/feature-3.mp4"
             title={
