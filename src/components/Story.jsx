@@ -54,7 +54,7 @@ const FloatingImage = () => {
 
         <div className="relative size-full">
           <AnimatedTitle
-            title="the st<b>o</b>ry of <br /> a hidden real<b>m</b>"
+            title="Unlock your hidden realm. </br>Speak your new world."
             containerClass="mt-5 pointer-events-none mix-blend-difference relative z-10"
           />
 
@@ -111,11 +111,11 @@ const FloatingImage = () => {
               opportunities.
             </p>
 
-            <Button
+            {/* <Button
               id="realm-btn"
               title="discover prologue"
               containerClass="mt-5"
-            />
+            /> */}
           </div>
         </div>
       </div>

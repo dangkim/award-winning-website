@@ -129,11 +129,11 @@ const Nexus = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-none tracking-tight">
             The Universe<br />Powered by Zent
           </h2>
-          <div className="mt-4 md:mt-8">
+          {/* <div className="mt-4 md:mt-8">
             <button className="bg-black text-white px-5 sm:px-6 md:px-8 py-2 rounded-full text-xs sm:text-sm uppercase font-bold">
               Enter Vault
             </button>
-          </div>
+          </div> */}
         </div>
         
         <div className="flex flex-col gap-6 md:gap-8 w-full">

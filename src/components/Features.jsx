@@ -103,12 +103,10 @@ const Features = () => (
     <div className="container mx-auto px-3 md:px-10">
       <div className="px-5 py-32">
         <p className="font-circular-web text-lg text-blue-50">
-          Into the Metagame Layer
+          Into the Talk-Together-Now
         </p>
         <p className="max-w-md font-circular-web text-lg text-blue-50 opacity-50">
-          Immerse yourself in a rich and ever-expanding universe where a vibrant
-          array of products converge into an interconnected overlay experience
-          on your world.
+          A peaceful harbor where voices rise, dreams fly, and a whole new world begins
         </p>
       </div>
 
@@ -117,10 +115,10 @@ const Features = () => (
           src="videos/feature-1.mp4"
           title={
             <>
-              radia<b>n</b>t
+              gr<b>o</b>w strong
             </>
           }
-          description="A cross-platform metagame app, turning your activities across Web2 and Web3 games into a rewarding adventure."
+          description="Planting a seed inside you. The more you practice, the stronger your confidence and communication skills grow."
           isComingSoon
         />
       </BentoTilt>
@@ -131,10 +129,10 @@ const Features = () => (
             src="videos/feature-2.mp4"
             title={
               <>
-                zig<b>m</b>a
+                spe<b>a</b>k loud
               </>
             }
-            description="An anime and gaming-inspired NFT collection - the IP primed for expansion."
+            description="Express yourself without fear, without shyness. Mistakes are not failures; they are the music of learning"
             isComingSoon
           />
         </BentoTilt>
@@ -144,10 +142,10 @@ const Features = () => (
             src="videos/feature-3.mp4"
             title={
               <>
-                n<b>e</b>xus
+                t<b>o</b>gether
               </>
             }
-            description="A gamified social hub, adding a new dimension of play to social interaction for Web3 communities."
+            description="Together, we create a safe and powerful environment where everyone moves forward side by sides"
             isComingSoon
           />
         </BentoTilt>
@@ -157,10 +155,10 @@ const Features = () => (
             src="videos/feature-4.mp4"
             title={
               <>
-                az<b>u</b>l
+                fre<b>e</b>ly
               </>
             }
-            description="A cross-world AI Agent - elevating your gameplay to be more fun and productive."
+            description="It is a bridge to new dreams, new friendships, and new opportunities"
             isComingSoon
           />
         </BentoTilt>
