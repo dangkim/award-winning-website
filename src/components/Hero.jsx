@@ -6,10 +6,15 @@ import { useEffect, useRef, useState } from "react";
 
 import Button from "./Button";
 import VideoPreview from "./VideoPreview";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   const [currentIndex, setCurrentIndex] = useState(1);
   const [hasClicked, setHasClicked] = useState(false);
 
@@ -95,10 +100,7 @@ const Hero = () => {
         </div>
       )}
 
-      <div
-        id="video-frame"
-        className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75"
-      >
+      <div id="video-frame" className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75">
         <div>
           <div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
             <VideoPreview>
@@ -140,23 +142,23 @@ const Hero = () => {
           />
         </div>
 
-        <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-yellow-50">
-          T<b>A</b>LKING
+        <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-yellow-50" 
+            dangerouslySetInnerHTML={{ __html: t.hero.heading2 }}>
         </h1>
 
         <div className="absolute left-0 top-0 z-40 size-full">
           <div className="mt-24 px-5 sm:px-10">
-            <h1 className="special-font hero-heading text-yellow-50">
-              redefi<b>n</b>e
+            <h1 className="special-font hero-heading text-yellow-50"
+                dangerouslySetInnerHTML={{ __html: t.hero.heading1 }}>
             </h1>
 
-            <p className="mb-5 max-w-64 font-robert-regular text-blue-100">
-              Speak bravely <br /> Beyond limits
+            <p className="mb-5 max-w-64 font-robert-regular text-blue-100 whitespace-pre-line">
+              {t.hero.subHeading}
             </p>
 
             <Button
               id="watch-trailer"
-              title="Watch trailer"
+              title={t.hero.watchTrailer}
               leftIcon={<TiLocationArrow />}
               containerClass="bg-yellow-300 flex-center gap-1"
             />
@@ -164,8 +166,8 @@ const Hero = () => {
         </div>
       </div>
 
-      <h1 className="special-font hero-heading absolute bottom-5 right-5 text-yellow-50">
-        T<b>A</b>LKING
+      <h1 className="special-font hero-heading absolute bottom-5 right-5 text-yellow-50"
+          dangerouslySetInnerHTML={{ __html: t.hero.heading2 }}>
       </h1>
     </div>
   );

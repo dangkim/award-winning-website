@@ -91,6 +91,12 @@ export const translations = {
         en: "EN",
         vi: "VN"
       }
+    },
+    hero: {
+      heading1: "redefi<b>n</b>e",
+      heading2: "T<b>A</b>LKING",
+      subHeading: "Speak bravely\nBeyond limits",
+      watchTrailer: "Watch trailer"
     }
   },
   vi: {
@@ -185,6 +191,12 @@ export const translations = {
         en: "EN",
         vi: "VN"
       }
+    },
+    hero: {
+      heading1: "đổi m<b>ớ</b>i",
+      heading2: "TR<b>Ò</b> CHUYỆN",
+      subHeading: "Nói tiếng Anh mạnh mẽ\nVượt qua giới hạn",
+      watchTrailer: "Xem video"
     }
   }
 };
