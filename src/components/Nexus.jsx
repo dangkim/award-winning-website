@@ -1,11 +1,15 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Nexus = () => {
   const containerRef = useRef(null);
+  const { language } = useLanguage();
+  const t = translations[language];
 
   useEffect(() => {
     const container = containerRef.current;
@@ -127,64 +131,29 @@ const Nexus = () => {
       <div className="h-auto flex flex-col justify-start items-start px-4 sm:px-6 md:px-10 py-8 md:py-16 max-w-6xl mx-auto">
         <div className="main-title mb-12 md:mb-24">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-none tracking-tight">
-            The Universe<br />Powered by Words
+            {t.nexus.title.line1}<br />{t.nexus.title.line2}
           </h2>
         </div>
 
         <div className="flex flex-col gap-6 md:gap-8 w-full">
-          <div className="item relative">
-            <div className="flex">
-              <div className="mr-3 md:mr-4 relative">
-                <div className="item-number text-xs md:text-sm font-medium opacity-60">01</div>
-                <div className="progress-bar absolute left-0 top-6 md:top-8 w-px h-0 bg-black" style={{ height: '0%' }}></div>
-              </div>
-              <div className="flex flex-col">
-                <h3 className="item-title text-lg sm:text-xl font-bold">Shape the Future of English Learning</h3>
-                <div className="item-content mt-2 md:mt-4 max-w-lg">
-                  <p className="text-sm sm:text-base">
-                    This is not a class — it's a living, growing world built by every smile, every word, and every brave attempt to speak out loud.
-                    Together, we make it ours.
-                  </p>
+          {t.nexus.items.map((item, index) => (
+            <div key={index} className={`item relative ${index > 0 ? 'opacity-0' : ''}`}>
+              <div className="flex">
+                <div className="mr-3 md:mr-4 relative">
+                  <div className="item-number text-xs md:text-sm font-medium opacity-60">{item.number}</div>
+                  <div className="progress-bar absolute left-0 top-6 md:top-8 w-px h-0 bg-black" style={{ height: '0%' }}></div>
+                </div>
+                <div className="flex flex-col">
+                  <h3 className="item-title text-lg sm:text-xl font-bold">{item.title}</h3>
+                  <div className={`item-content mt-2 md:mt-4 max-w-lg ${index > 0 ? 'opacity-0 h-0 hidden' : ''}`}>
+                    <p className="text-sm sm:text-base">
+                      {item.content}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="item relative opacity-0">
-            <div className="flex">
-              <div className="mr-3 md:mr-4 relative">
-                <div className="item-number text-xs md:text-sm font-medium opacity-60">02</div>
-                <div className="progress-bar absolute left-0 top-6 md:top-8 w-px h-0 bg-black" style={{ height: '0%' }}></div>
-              </div>
-              <div className="flex flex-col">
-                <h3 className="item-title text-lg sm:text-xl font-bold">Unlocking Life's Opportunities Through English</h3>
-                <div className="item-content mt-2 md:mt-4 max-w-lg opacity-0 h-0 hidden">
-                  <p className="text-sm sm:text-base">
-                    Every word you learn is a key.
-                    A key to friendships, adventures, careers, and dreams you've never imagined yet.
-                    Let's open those doors together.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="item relative opacity-0">
-            <div className="flex">
-              <div className="mr-3 md:mr-4 relative">
-                <div className="item-number text-xs md:text-sm font-medium opacity-60">03</div>
-                <div className="progress-bar absolute left-0 top-6 md:top-8 w-px h-0 bg-black" style={{ height: '0%' }}></div>
-              </div>
-              <div className="flex flex-col">
-                <h3 className="item-title text-lg sm:text-xl font-bold">Grow Your Skills, Share the Journey</h3>
-                <div className="item-content mt-2 md:mt-4 max-w-lg opacity-0 h-0 hidden">
-                  <p className="text-sm sm:text-base">
-                    Every student's courage, every parent's support, every lesson learned makes our English world richer for everyone. Together, we win.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

@@ -26,7 +26,7 @@ export const translations = {
     },
     story: {
       intro: "let's talk together now",
-      title: "Unlock your hidden realm.\nSpeak your new world.",
+      title: "Unlock your hidden realm. <br /> Speak your new world.",
       description: "Step into this world, where words build friendships, dreams find their wings, and together, we grow stronger, louder, and freer."
     },
     privacyPolicy: {
@@ -97,6 +97,39 @@ export const translations = {
       heading2: "T<b>A</b>LKING",
       subHeading: "Speak bravely\nBeyond limits",
       watchTrailer: "Watch trailer"
+    },
+    about: {
+      welcome: "Welcome to Talk-Together-Now",
+      title: "Discover the joy of a <br /> shared English adventure",
+      description: "TalkTogetherNow unites voices — young, old, beginner, shy — into one family of real English learners."
+    },
+    nexus: {
+      title: {
+        line1: "The Universe",
+        line2: "Powered by Words"
+      },
+      items: [
+        {
+          number: "01",
+          title: "Shape the Future of English Learning",
+          content: "This is not a class — it's a living, growing world built by every smile, every word, and every brave attempt to speak out loud. Together, we make it ours."
+        },
+        {
+          number: "02",
+          title: "Unlocking Life's Opportunities Through English",
+          content: "Every word you learn is a key. A key to friendships, adventures, careers, and dreams you've never imagined yet. Let's open those doors together."
+        },
+        {
+          number: "03",
+          title: "Grow Your Skills, Share the Journey",
+          content: "Every student's courage, every parent's support, every lesson learned makes our English world richer for everyone. Together, we win."
+        }
+      ]
+    },
+    contact: {
+      joinText: "Join Talk-Together-Now",
+      title: "let&#39;s brew a <br /> brighter future in<br /> English together.",
+      buttonText: "contact us"
     }
   },
   vi: {
@@ -108,11 +141,11 @@ export const translations = {
       description: "Một bến đỗ bình yên nơi tiếng nói vươn cao, ước mơ bay xa, và một thế giới mới bắt đầu",
       comingSoon: "sắp ra mắt",
       feature1: {
-        title: "ph<b>á</b>t triển",
+        title: "N<b>ả</b>y mầm",
         description: "Gieo một hạt giống bên trong bạn. Càng luyện tập, sự tự tin và kỹ năng giao tiếp càng mạnh mẽ."
       },
       feature2: {
-        title: "n<b>ó</b>i to",
+        title: "Hãy n<b>ó</b>i",
         description: "Thể hiện bản thân không sợ hãi, không ngại ngùng. Lỗi sai không phải thất bại; đó là âm nhạc của việc học."
       },
       feature3: {
@@ -126,7 +159,7 @@ export const translations = {
     },
     story: {
       intro: "hãy cùng nhau trò chuyện",
-      title: "Mở khóa tiềm năng ẩn giấu.\nNói lên thế giới mới của bạn.",
+      title: "Mở khóa tiềm năng ẩn giấu. <br /> Nói lên thế giới mới của bạn.",
       description: "Bước vào thế giới này, nơi ngôn từ xây dựng tình bạn, ước mơ tìm thấy đôi cánh, và cùng nhau, chúng ta trở nên mạnh mẽ, vang dội và tự do hơn."
     },
     privacyPolicy: {
@@ -197,6 +230,39 @@ export const translations = {
       heading2: "TR<b>Ò</b> CHUYỆN",
       subHeading: "Nói tiếng Anh mạnh mẽ\nVượt qua giới hạn",
       watchTrailer: "Xem video"
+    },
+    about: {
+      welcome: "Chào mừng đến với Talk-Together-Now",
+      title: "Khám phá niềm vui chung <br /> của cuộc phiêu lưu tiếng Anh",
+      description: "TalkTogetherNow kết nối những giọng nói — trẻ, già, người mới bắt đầu, người nhút nhát — thành một gia đình học tiếng Anh thực tế."
+    },
+    nexus: {
+      title: {
+        line1: "Vũ Trụ",
+        line2: "Được Tạo Nên Từ Ngôn Từ"
+      },
+      items: [
+        {
+          number: "01",
+          title: "Định Hình Tương Lai Học Tiếng Anh",
+          content: "Đây không phải là một lớp học — đây là một thế giới sống động, phát triển được xây dựng từ mỗi nụ cười, mỗi từ ngữ và mọi nỗ lực dũng cảm để nói lớn. Cùng nhau, chúng ta tạo nên nó."
+        },
+        {
+          number: "02",
+          title: "Mở Khóa Cơ Hội Cuộc Sống Qua Tiếng Anh",
+          content: "Mỗi từ bạn học là một chìa khóa. Chìa khóa đến tình bạn, phiêu lưu, sự nghiệp và những ước mơ bạn chưa từng tưởng tượng đến. Hãy cùng nhau mở những cánh cửa đó."
+        },
+        {
+          number: "03",
+          title: "Phát Triển Kỹ Năng, Chia Sẻ Hành Trình",
+          content: "Sự can đảm của mỗi học viên, sự hỗ trợ của mỗi phụ huynh, mỗi bài học đã học làm phong phú thêm thế giới tiếng Anh của chúng ta. Cùng nhau, chúng ta chiến thắng."
+        }
+      ]
+    },
+    contact: {
+      joinText: "Tham Gia Talk-Together-Now",
+      title: "Hãy cùng nhau <br /> tạo tương lai <br /> tiếng Anh tươi sáng hơn.",
+      buttonText: "liên hệ ngay"
     }
   }
 };

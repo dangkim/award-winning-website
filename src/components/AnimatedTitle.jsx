@@ -20,7 +20,7 @@ const AnimatedTitle = ({ title, containerClass }) => {
       });
 
       titleAnimation.to(
-        ".animated-word",
+        containerRef.current.querySelectorAll(".animated-word"),
         {
           opacity: 1,
           transform: "translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg)",
@@ -32,22 +32,45 @@ const AnimatedTitle = ({ title, containerClass }) => {
     }, containerRef);
 
     return () => ctx.revert(); // Clean up on unmount
-  }, []);
+  }, [title]); // Re-run the effect when the title changes
+
+  const decodeHTML = (html) => {
+    const txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
+  };
+
+  const lines = decodeHTML(title).split("<br />").map((line) => line.trim());
 
   return (
     <div ref={containerRef} className={clsx("animated-title", containerClass)}>
-      {title.split("<br />").map((line, index) => (
+      {lines.map((line, index) => (
         <div
           key={index}
           className="flex-center max-w-full flex-wrap gap-2 px-10 md:gap-3"
         >
-          {line.split(" ").map((word, idx) => (
-            <span
-              key={idx}
-              className="animated-word"
-              dangerouslySetInnerHTML={{ __html: word }}
-            />
-          ))}
+          {line.split(/(<b>.*?<\/b>)/).map((segment, idx) => {
+            if (segment.startsWith("<b>")) {
+              // Handle bold text
+              return (
+                <span
+                  key={idx}
+                  className="animated-word inline-block"
+                  dangerouslySetInnerHTML={{ __html: segment }}
+                />
+              );
+            }
+            // Handle regular text - split by spaces while preserving whole words
+            return segment
+              .trim()
+              .split(/\s+/)
+              .filter(Boolean)
+              .map((word, wordIdx) => (
+                <span key={`${idx}-${wordIdx}`} className="animated-word inline-block">
+                  {word}
+                </span>
+              ));
+          })}
         </div>
       ))}
     </div>

@@ -1,12 +1,16 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
-
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations";
 import AnimatedTitle from "./AnimatedTitle";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   useGSAP(() => {
     const clipAnimation = gsap.timeline({
       scrollTrigger: {
@@ -30,18 +34,17 @@ const About = () => {
     <div id="about" className="min-h-screen w-screen">
       <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
         <p className="font-general text-sm uppercase md:text-[10px]">
-          Welcome to Talk-Together-Now
+          {t.about.welcome}
         </p>
 
         <AnimatedTitle
-          title="Disc<b>o</b>ver the joy of a <br /> shared English <b>a</b>dventure"
+          title={t.about.title}
           containerClass="mt-5 !text-black text-center"
         />
 
         <div className="about-subtext">
-          {/* <p>The Game of Games begins—your life, now an epic MMORPG</p> */}
           <p className="text-gray-500">
-            TalkTogetherNow unites voices — young, old, beginner, shy — into one family of real English learners.
+            {t.about.description}
           </p>
         </div>
       </div>
@@ -50,7 +53,7 @@ const About = () => {
         <div className="mask-clip-path about-image">
           <img
             src="img/genh-ba-bai-xep.jpg"
-            alt="Background"
+            alt={language === 'en' ? 'Background' : 'Hình nền'}
             className="absolute left-0 top-0 size-full object-cover"
           />
         </div>
