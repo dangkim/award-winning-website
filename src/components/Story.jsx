@@ -1,11 +1,14 @@
 import gsap from "gsap";
 import { useRef } from "react";
-
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations";
 import Button from "./Button";
 import AnimatedTitle from "./AnimatedTitle";
 
-const FloatingImage = () => {
+const Story = () => {
   const frameRef = useRef(null);
+  const { language } = useLanguage();
+  const t = translations[language];
 
   const handleMouseMove = (e) => {
     const { clientX, clientY } = e;
@@ -49,12 +52,12 @@ const FloatingImage = () => {
     <div id="story" className="min-h-dvh w-screen bg-black text-blue-50">
       <div className="flex size-full flex-col items-center py-10 pb-24">
         <p className="font-general text-sm uppercase md:text-[10px]">
-          let's talk together now
+          {t.story.intro}
         </p>
 
         <div className="relative size-full">
           <AnimatedTitle
-            title="Unlock your hidden realm. <br/> Speak your new world."
+            title={t.story.title}
             containerClass="mt-5 pointer-events-none mix-blend-difference relative z-10"
           />
 
@@ -106,9 +109,7 @@ const FloatingImage = () => {
         <div className="-mt-80 flex w-full justify-center md:-mt-64 md:me-44 md:justify-end">
           <div className="flex h-full w-fit flex-col items-center md:items-start">
             <p className="mt-3 max-w-sm text-center font-circular-web text-violet-50 md:text-start">
-              Step into this world, where words build friendships,
-              dreams find their wings, and together,
-              we grow stronger, louder, and freer.
+              {t.story.description}
             </p>
 
             {/* <Button
@@ -123,4 +124,4 @@ const FloatingImage = () => {
   );
 };
 
-export default FloatingImage;
+export default Story;

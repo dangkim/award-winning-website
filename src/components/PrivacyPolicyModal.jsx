@@ -1,5 +1,16 @@
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations";
+
 const PrivacyPolicyModal = ({ isOpen, onClose }) => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   if (!isOpen) return null;
+  
+  if (!t?.privacyPolicy) {
+    console.error('Missing translations for privacy policy');
+    return null;
+  }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -11,50 +22,36 @@ const PrivacyPolicyModal = ({ isOpen, onClose }) => {
         >
           ✕
         </button>
-        <div className="prose max-w-none">
-          <h2 className="mb-4 text-2xl font-bold">Privacy Policy</h2>
-          <p className="mb-2">Effective Date: April 27, 2025</p>
+        <div className="prose prose-slate max-w-none">
+          <h2 className="mb-4 text-2xl font-bold">{t.privacyPolicy.title}</h2>
+          <p className="mb-2 text-gray-600">{t.privacyPolicy.effectiveDate}</p>
 
-          <h3 className="mt-6 font-bold">Welcome to English Coffee Club!</h3>
-          <p>We are committed to protecting your personal information and respecting your privacy. This Privacy Policy explains how we collect, use, and protect your information when you interact with us.</p>
+          <h3 className="mt-6 text-xl font-bold">{t.privacyPolicy.welcome}</h3>
+          <p className="mb-8 text-gray-700">{t.privacyPolicy.introText}</p>
 
-          <h4 className="mt-4 font-bold">1. Information We Collect</h4>
-          <ul>
-            <li>Contact Information: Name, phone number, email address (if you register).</li>
-            <li>Participation Info: Your session attendance, feedback, and basic preferences.</li>
-            <li>Media: Photos or videos during events (only if you give permission).</li>
-          </ul>
-
-          <h4 className="mt-4 font-bold">2. How We Use Your Information</h4>
-          <ul>
-            <li>To manage your event registration and communication.</li>
-            <li>To improve our club activities and create better experiences for you.</li>
-            <li>To occasionally send you news about upcoming sessions, special offers, or important updates (you can opt out anytime).</li>
-          </ul>
-
-          <h4 className="mt-4 font-bold">3. How We Protect Your Information</h4>
-          <ul>
-            <li>We store your information securely and limit access only to authorized team members.</li>
-            <li>We never sell, rent, or trade your information to third parties.</li>
-          </ul>
-
-          <h4 className="mt-4 font-bold">4. Your Rights</h4>
-          <ul>
-            <li>You can request to view, update, or delete your information at any time by contacting us.</li>
-            <li>You can opt out of receiving marketing communications at any time.</li>
-          </ul>
-
-          <h4 className="mt-4 font-bold">5. Media Consent</h4>
-          <p>We may take photos or short videos during club activities to promote the club (such as on social media or our website).</p>
-          <p>You always have the right to say no to being photographed or filmed — just let us know!</p>
-
-          <h4 className="mt-4 font-bold">6. Changes to This Policy</h4>
-          <p>We may update this Privacy Policy if needed. If we make changes, we will notify you by posting the update on our website.</p>
-
-          <h4 className="mt-4 font-bold">7. Contact Us</h4>
-          <p>If you have any questions about this Privacy Policy or your personal information, please contact us:</p>
-          <p>📩 Email: tamchitrung@gmail.com</p>
-          <p>📱 Phone: 0902532732</p>
+          <div className="space-y-8">
+            {Object.entries(t.privacyPolicy.sections).map(([key, section]) => (
+              <div key={key}>
+                <h4 className="mb-4 text-lg font-bold">{section.title}</h4>
+                {section.content && (
+                  <p className="mb-4 text-gray-700">{section.content}</p>
+                )}
+                {section.items && (
+                  <ul className="list-disc space-y-2 pl-5">
+                    {section.items.map((item, index) => (
+                      <li key={index} className="text-gray-700">{item}</li>
+                    ))}
+                  </ul>
+                )}
+                {key === 'contact' && (
+                  <div className="mt-4 space-y-2 text-gray-700">
+                    <p>{section.email}</p>
+                    <p>{section.phone}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

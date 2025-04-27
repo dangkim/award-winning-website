@@ -3,12 +3,16 @@ import gsap from "gsap";
 import { useWindowScroll } from "react-use";
 import { useEffect, useRef, useState } from "react";
 import { TiLocationArrow } from "react-icons/ti";
-
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations";
 import Button from "./Button";
 
 const navItems = ["Contact"];
 
 const NavBar = () => {
+  const { language, toggleLanguage } = useLanguage();
+  const t = translations[language];
+
   // State for toggling audio and visual indicator
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [isIndicatorActive, setIsIndicatorActive] = useState(false);
@@ -69,19 +73,19 @@ const NavBar = () => {
     >
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex size-full items-center justify-between p-4">
-          {/* Logo and Product button */}
+          {/* Logo and Language Switcher */}
           <div className="flex items-center gap-7">
             <img src="/img/logo.png" alt="logo" className="w-10" />
 
-            <Button
-              id="product-button"
-              title="Products"
-              rightIcon={<TiLocationArrow />}
-              containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
-            />
+            <button
+              onClick={toggleLanguage}
+              className="text-sm font-medium hover:text-white transition-colors bg-blue-50 px-7 py-3 rounded-full flex items-center justify-center"
+            >
+              {language === 'en' ? 'VN' : 'EN'}
+            </button>
           </div>
 
-          {/* Navigation Links and Audio Button */}
+          {/* Rest of the navbar... */}
           <div className="flex h-full items-center">
             <div className="hidden md:block">
               {navItems.map((item, index) => (
@@ -90,7 +94,7 @@ const NavBar = () => {
                   href={`#${item.toLowerCase()}`}
                   className="nav-hover-btn"
                 >
-                  {item}
+                  {t.nav[item.toLowerCase()]}
                 </a>
               ))}
             </div>

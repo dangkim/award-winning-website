@@ -1,5 +1,7 @@
 import { useState, useRef } from "react";
 import { TiLocationArrow } from "react-icons/ti";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations";
 
 export const BentoTilt = ({ children, className = "" }) => {
   const [transformStyle, setTransformStyle] = useState("");
@@ -39,6 +41,8 @@ export const BentoTilt = ({ children, className = "" }) => {
 };
 
 export const BentoCard = ({ src, title, description, isComingSoon }) => {
+  const { language } = useLanguage();
+  const t = translations[language];
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [hoverOpacity, setHoverOpacity] = useState(0);
   const hoverButtonRef = useRef(null);
@@ -81,7 +85,6 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
             onMouseLeave={handleMouseLeave}
             className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black px-5 py-2 text-xs uppercase text-white/20"
           >
-            {/* Radial gradient hover effect */}
             <div
               className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
               style={{
@@ -90,7 +93,7 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
               }}
             />
             <TiLocationArrow className="relative z-20" />
-            <p className="relative z-20">coming soon</p>
+            <p className="relative z-20">{t.features.comingSoon}</p>
           </div>
         )}
       </div>
@@ -98,93 +101,82 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
   );
 };
 
-const Features = () => (
-  <section className="bg-black pb-52">
-    <div className="container mx-auto px-3 md:px-10">
-      <div className="px-5 py-32">
-        <p className="font-circular-web text-lg text-blue-50">
-          Into the Talk-Together-Now
-        </p>
-        <p className="max-w-md font-circular-web text-lg text-blue-50 opacity-50">
-          A peaceful harbor where voices rise, dreams fly, and a whole new world begins
-        </p>
+const Features = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
+  return (
+    <section className="bg-black pb-52">
+      <div className="container mx-auto px-3 md:px-10">
+        <div className="px-5 py-32">
+          <p className="font-circular-web text-lg text-blue-50">
+            {t.features.intro}
+          </p>
+          <p className="max-w-md font-circular-web text-lg text-blue-50 opacity-50">
+            {t.features.description}
+          </p>
+        </div>
+
+        <BentoTilt className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]">
+          <BentoCard
+            src="videos/feature-1.mp4"
+            title={<div dangerouslySetInnerHTML={{ __html: t.features.feature1.title }} />}
+            description={t.features.feature1.description}
+            isComingSoon
+          />
+        </BentoTilt>
+
+        <div className="grid h-[135vh] w-full grid-cols-2 grid-rows-3 gap-7">
+          <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
+            <BentoCard
+              src="videos/feature-2.mp4"
+              title={<div dangerouslySetInnerHTML={{ __html: t.features.feature2.title }} />}
+              description={t.features.feature2.description}
+              isComingSoon
+            />
+          </BentoTilt>
+
+          <BentoTilt className="bento-tilt_1 ms-14 row-span-1 md:col-span-1 md:ms-0">
+            <BentoCard
+              src="videos/feature-3.mp4"
+              title={<div dangerouslySetInnerHTML={{ __html: t.features.feature3.title }} />}
+              description={t.features.feature3.description}
+              isComingSoon
+            />
+          </BentoTilt>
+
+          <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
+            <BentoCard
+              src="videos/feature-4.mp4"
+              title={<div dangerouslySetInnerHTML={{ __html: t.features.feature4.title }} />}
+              description={t.features.feature4.description}
+              isComingSoon
+            />
+          </BentoTilt>
+
+          <BentoTilt className="bento-tilt_2">
+            <div className="flex size-full flex-col justify-between bg-violet-300 p-5">
+              <h1 className="bento-title special-font max-w-64 text-black">
+                M<b>o</b>re co<b>m</b>ing s<b>o</b>on.
+              </h1>
+
+              <TiLocationArrow className="m-5 scale-[5] self-end" />
+            </div>
+          </BentoTilt>
+
+          <BentoTilt className="bento-tilt_2">
+            <video
+              src="videos/feature-5.mp4"
+              loop
+              muted
+              autoPlay
+              className="size-full object-cover object-center"
+            />
+          </BentoTilt>
+        </div>
       </div>
-
-      <BentoTilt className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]">
-        <BentoCard
-          src="videos/feature-1.mp4"
-          title={
-            <>
-              gr<b>o</b>w strong
-            </>
-          }
-          description="Planting a seed inside you. The more you practice, the stronger your confidence and communication skills grow."
-          isComingSoon
-        />
-      </BentoTilt>
-
-      <div className="grid h-[135vh] w-full grid-cols-2 grid-rows-3 gap-7">
-        <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
-          <BentoCard
-            src="videos/feature-2.mp4"
-            title={
-              <>
-                spe<b>a</b>k loud
-              </>
-            }
-            description="Express yourself without fear, without shyness. Mistakes are not failures; they are the music of learning"
-            isComingSoon
-          />
-        </BentoTilt>
-
-        <BentoTilt className="bento-tilt_1 row-span-1 ms-14 md:col-span-1 md:ms-0">
-          <BentoCard
-            src="videos/feature-3.mp4"
-            title={
-              <>
-                t<b>o</b>gether
-              </>
-            }
-            description="Together, we create a safe and powerful environment where everyone moves forward side by sides"
-            isComingSoon
-          />
-        </BentoTilt>
-
-        <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
-          <BentoCard
-            src="videos/feature-4.mp4"
-            title={
-              <>
-                fre<b>e</b>ly
-              </>
-            }
-            description="It is a bridge to new dreams, new friendships, and new opportunities"
-            isComingSoon
-          />
-        </BentoTilt>
-
-        <BentoTilt className="bento-tilt_2">
-          <div className="flex size-full flex-col justify-between bg-violet-300 p-5">
-            <h1 className="bento-title special-font max-w-64 text-black">
-              M<b>o</b>re co<b>m</b>ing s<b>o</b>on.
-            </h1>
-
-            <TiLocationArrow className="m-5 scale-[5] self-end" />
-          </div>
-        </BentoTilt>
-
-        <BentoTilt className="bento-tilt_2">
-          <video
-            src="videos/feature-5.mp4"
-            loop
-            muted
-            autoPlay
-            className="size-full object-cover object-center"
-          />
-        </BentoTilt>
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Features;
