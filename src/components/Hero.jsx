@@ -110,6 +110,7 @@ const Hero = () => {
               >
                 <video
                   ref={nextVdRef}
+                  preload="metadata"
                   src={getVideoSrc((currentIndex % totalVideos) + 1)}
                   loop
                   muted
@@ -124,6 +125,7 @@ const Hero = () => {
           <video
             ref={nextVdRef}
             src={getVideoSrc(currentIndex)}
+            preload="metadata"
             loop
             muted
             id="next-video"
@@ -134,6 +136,7 @@ const Hero = () => {
             src={getVideoSrc(
               currentIndex === totalVideos - 1 ? 1 : currentIndex
             )}
+            preload="metadata"
             autoPlay
             loop
             muted
