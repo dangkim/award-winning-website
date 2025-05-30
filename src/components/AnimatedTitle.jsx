@@ -47,7 +47,7 @@ const AnimatedTitle = ({ title, containerClass }) => {
       {lines.map((line, index) => (
         <div
           key={index}
-          className="flex-center max-w-full flex-wrap gap-2 px-10 md:gap-3"
+          className="flex-center max-w-full flex-wrap gap-2 px-10 md:gap-7"
         >
           {line.split(/(<b>.*?<\/b>)/).map((segment, idx) => {
             if (segment.startsWith("<b>")) {

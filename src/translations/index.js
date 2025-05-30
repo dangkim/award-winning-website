@@ -93,9 +93,9 @@ export const translations = {
       }
     },
     hero: {
-      heading1: "Just",
-      heading2: "Start",
-      subHeading: "We’re here with you.\nJust try",
+      heading1: "Just Start",
+      heading2: "We’re here with you. Let's try",
+      subHeading: "We’re here with you. Let'ss  try",
       watchTrailer: "Watch trailer"
     },
     about: {
@@ -227,13 +227,13 @@ export const translations = {
     },
     hero: {
       heading1: "cứ bắt đầu",
-      heading2: "là được thôi",
-      subHeading: "Chúng tôi luôn ở đây cùng bạn\nHãy thử nhé.",
+      heading2: "Chúng tôi luôn ở đây cùng bạn. Hãy thử nhé.",
+      subHeading: "Chúng tôi luôn ở đây cùng bạn. Hãy thử nhé.",
       watchTrailer: "Xem video"
     },
     about: {
       welcome: "Chào mừng đến với Talk-Together-Now",
-      title: "Hãy cùng nhau học nói tiếng Anh từng bước một, thật vui và thoải mái.",
+      title: "Hãy cùng nhau nói tiếng Anh từng bước một, thật vui và thật thoải mái.",
       description: "TalkTogetherNow kết nối những giọng nói — trẻ, già, người mới bắt đầu, người nhút nhát — thành một gia đình học tiếng Anh thực tế."
     },
     nexus: {

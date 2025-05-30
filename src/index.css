@@ -14,22 +14,22 @@ body {
 @layer base {
   @font-face {
     font-family: "circular-web";
-    src: url("/fonts/SourceSansPro-Regular.woff2") format("woff2");
+    src: url("/fonts/Montserrat-Regular.woff2") format("woff2");
   }
 
   @font-face {
     font-family: "general";
-    src: url("/fonts/SourceSansPro-Regular.woff2") format("woff2");
+    src: url("/fonts/Montserrat-Regular.woff2") format("woff2");
   }
 
   @font-face {
     font-family: "robert-medium";
-    src: url("/fonts/SourceSansPro-Regular.woff2") format("woff2");
+    src: url("/fonts/Montserrat-Regular.woff2") format("woff2");
   }
 
   @font-face {
     font-family: "robert-regular";
-    src: url("/fonts/SourceSansPro-Regular.woff2") format("woff2");
+    src: url("/fonts/Montserrat-Regular.woff2") format("woff2");
   }
 
   /* @font-face {
@@ -39,7 +39,7 @@ body {
 
   @font-face {
     font-family: "zentry";
-    src: url("/fonts/SourceSansPro-Regular.woff2") format("woff2");
+    src: url("/fonts/Montserrat-Regular.woff2") format("woff2");
   }
 }
 
@@ -74,7 +74,7 @@ body {
   }
 
   .hero-heading {
-    @apply uppercase font-zentry font-black text-5xl sm:right-16 sm:text-6xl md:text-9xl lg:text-[9rem];
+    @apply uppercase font-zentry font-black text-5xl sm:right-16 sm:text-6xl md:text-9xl lg:text-[4rem];
   }
 
   .about-subtext {
@@ -86,7 +86,7 @@ body {
   }
 
   .animated-title {
-    @apply flex flex-col gap-1 text-4xl uppercase leading-[.8] text-white sm:px-32 md:text-[6rem];
+    @apply flex flex-col gap-1 text-4xl uppercase leading-[.8] text-white sm:px-32 md:text-[4rem];
   }
 
   .animated-word {

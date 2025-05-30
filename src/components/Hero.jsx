@@ -155,7 +155,7 @@ const Hero = () => {
                 dangerouslySetInnerHTML={{ __html: t.hero.heading1 }}>
             </h1>
 
-            <p className="mb-5 max-w-64 font-robert-regular text-blue-100 whitespace-pre-line">
+            {/* <p className="mb-5 max-w-64 font-robert-regular text-blue-100 whitespace-pre-line">
               {t.hero.subHeading}
             </p>
 
@@ -164,7 +164,7 @@ const Hero = () => {
               title={t.hero.watchTrailer}
               leftIcon={<TiLocationArrow />}
               containerClass="bg-yellow-300 flex-center gap-1"
-            />
+            /> */}
           </div>
         </div>
       </div>
