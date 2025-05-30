@@ -131,7 +131,9 @@ const Nexus = () => {
       <div className="h-auto flex flex-col justify-start items-start px-4 sm:px-6 md:px-10 py-8 md:py-16 max-w-6xl mx-auto">
         <div className="main-title mb-12 md:mb-24">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-none tracking-tight">
-            {t.nexus.title.line1}<br />{t.nexus.title.line2}
+            <p>{t.nexus.title.line1}</p>
+            <p className="pt-1">{t.nexus.title.line2}</p>
+            {/* {t.nexus.title.line1}<br />{t.nexus.title.line2} */}
           </h2>
         </div>
 
